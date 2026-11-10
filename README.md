@@ -8,7 +8,9 @@
 |---|---|
 | Target | Fossil Fighters (USA), `YKHE`, SHA-1 `8148a65040b5085337b76e6051601da1b1fc28ef` |
 | Functions | 11,776 found across ARM9 main, ITCM and 8 overlays |
-| Matched | 10,747 functions, 710,430 bytes (50.7%): the `M` engine library (tasks, interrupts, displays, BG layers, sprites, fonts, text, menus, pictures, 3D models and scenes, motions, resources, backups, wireless play), the NitroSDK, NitroSystem, MSL and MW runtime code the game uses, and much of the game: sound, events, the field (its camera, map lookups and area panel), cleaning, saves, menus (incl. the shops, containers, team organization and the creature lists' sorts) and the battle models and UI |
+| Linked from our C | 112 files, 932 functions, 73,748 bytes (5.2% of 1,414,368 code bytes): delinks files marked `complete` |
+| Partial | 281 source files (10,782 functions, 1,320,552 bytes) are written but link the original bytes until the whole file matches; 266 `NONMATCHING` markers. Functions that already match inside them: `ninja objdiff.json` + objdiff (earlier hand count: 10,747 functions, 710,430 bytes, not tracked by a script). Figures: `python3 tools/progress_stats.py` |
+| Covered | the `M` engine library (tasks, interrupts, displays, BG layers, sprites, fonts, text, menus, pictures, 3D models and scenes, motions, resources, backups, wireless play), the NitroSDK, NitroSystem, MSL and MW runtime code the game uses, and much of the game: sound, events, the field, cleaning, saves, menus and the battle models and UI |
 | Named | 10,961 functions, incl. the NitroSDK/NitroSystem/MSL functions found by `tools/sdk_names` and the destructors and virtuals named from the RTTI |
 | Compiler | Metrowerks CodeWarrior for ARM 2.0 (`mwccarm`), NitroSDK 4.0 |
 
@@ -28,7 +30,7 @@ Works on macOS (Apple Silicon or Intel) and Linux; Windows should work but is un
    ninja
    ```
 
-`ninja` extracts the ROM, splits its code into objects, compiles everything in `src/`, links, checks every module byte-for-byte, builds `build/ff_usa.nds` and verifies its SHA-1. A clean build takes a few seconds.
+`ninja` extracts the ROM, splits its code into objects, compiles everything in `src/`, links (files not yet fully matched link the original bytes), checks every module byte-for-byte, builds `build/ff_usa.nds` and verifies its SHA-1. A clean build takes a few seconds.
 
 Other targets: `ninja check` (module check only), `ninja objdiff.json` (config for [objdiff](https://github.com/encounter/objdiff) and decomp.me scratches).
 
