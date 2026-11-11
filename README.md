@@ -7,10 +7,13 @@
 | | |
 |---|---|
 | Target | Fossil Fighters (USA), `YKHE`, SHA-1 `8148a65040b5085337b76e6051601da1b1fc28ef` |
-| Functions | 11,776 found across ARM9 main, ITCM and 8 overlays |
-| Matched | 10,747 functions, 710,430 bytes (50.7%): the `M` engine library (tasks, interrupts, displays, BG layers, sprites, fonts, text, menus, pictures, 3D models and scenes, motions, resources, backups, wireless play), the NitroSDK, NitroSystem, MSL and MW runtime code the game uses, and much of the game: sound, events, the field (its camera, map lookups and area panel), cleaning, saves, menus (incl. the shops, containers, team organization and the creature lists' sorts) and the battle models and UI |
+| Functions | 11,777 found across ARM9 main, ITCM and 8 overlays |
+| Linked from our C | 932 functions, 73,748 of 1,414,368 code bytes (5.2%), in the 112 of 393 source files marked `complete` in `delinks.txt`: the `complete` files are linked from the object our C compiles to and are checked byte-for-byte |
+| Matching in partial files | 10,114 of the 10,799 functions in the other 281 files compile to the game's bytes (objdiff), but those files still link the original bytes until the whole file matches (268 `NONMATCHING` markers remain in 125 files; some matching bodies are `asm` fallbacks). Includes the `M` engine library, much of the NitroSDK, NitroSystem, MSL and MW runtime, and large parts of the game |
 | Named | 10,961 functions, incl. the NitroSDK/NitroSystem/MSL functions found by `tools/sdk_names` and the destructors and virtuals named from the RTTI |
 | Compiler | Metrowerks CodeWarrior for ARM 2.0 (`mwccarm`), NitroSDK 4.0 |
+
+Progress figures: `python3 tools/progress.py` (after `ninja partial objdiff.json`; `--no-objdiff` for the delinks-only part). The table figures equal its output.
 
 ## Building
 
@@ -28,7 +31,7 @@ Works on macOS (Apple Silicon or Intel) and Linux; Windows should work but is un
    ninja
    ```
 
-`ninja` extracts the ROM, splits its code into objects, compiles everything in `src/`, links, checks every module byte-for-byte, builds `build/ff_usa.nds` and verifies its SHA-1. A clean build takes a few seconds.
+`ninja` extracts the ROM, splits its code into objects, compiles everything in `src/`, links, checks every module byte-for-byte (for the 281 partial files this only proves the original bytes were relinked unchanged, since they are not yet linked from our C), builds `build/ff_usa.nds` and verifies its SHA-1. A clean build takes a few seconds.
 
 Other targets: `ninja check` (module check only), `ninja objdiff.json` (config for [objdiff](https://github.com/encounter/objdiff) and decomp.me scratches).
 
@@ -39,7 +42,7 @@ Two non-code fields can't be regenerated without extra inputs, so they're restor
 - The secure-area checksum is computed over the *encrypted* secure area, which needs the DS ARM7 BIOS.
 - The banner icon's palette contains the same colour twice, and dsd's PNG round trip can't tell the two apart.
 
-Every code module is checked independently by `dsd check modules`, so this doesn't hide code mismatches.
+Every code module is checked independently by `dsd check modules`. Only the `complete` files are linked from our C, so a mismatch in a partial file shows up in objdiff (`python3 tools/progress.py`), not in that check.
 
 ## How to contribute
 
