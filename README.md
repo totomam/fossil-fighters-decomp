@@ -2,7 +2,7 @@
 
 **Work in progress.** This project is recreating the source code of ***Fossil Fighters*** (Nintendo DS, 2009) by hand, so that it compiles back into a byte-identical ROM.
 
-**This repository contains no game assets and no game code.** It holds hand-written C, symbol and address maps, and build scripts. To build, you need your own copy of the game: the build extracts everything else from it.
+**This repository contains no game assets and no ROM data files.** It holds hand-written C, symbol and address maps, and build scripts. It does contain some original game instructions: functions that do not match yet are kept as mwcc `asm` functions or `dcd` words with the game's own instructions (152 `asm` functions in 34 files and 140 `dcd` lines, as of writing). To build, you need your own copy of the game: the build extracts everything else from it.
 
 | | |
 |---|---|
@@ -74,11 +74,11 @@ Tips:
 - [objdiff](https://github.com/encounter/objdiff): function diffing and progress reports
 - [wibo](https://github.com/decompals/wibo): runs the Windows-only Metrowerks tools on macOS and Linux
 - [ntrtwl/NitroSDK](https://github.com/ntrtwl/NitroSDK), [ntrtwl/NitroSystem](https://github.com/ntrtwl/NitroSystem): reference builds for naming library functions (`tools/sdk_names`)
-- MSL sources and headers from the [Spirit Tracks decomp](https://github.com/zeldaret/st) (CC0)
+- MSL sources and headers from the [Spirit Tracks decomp](https://github.com/zeldaret/st). The MSL is Metrowerks code (Metrowerks Standard Library), not CC0: see `libs/msl/README.md`
 - Build structure adapted from the [Phantom Hourglass decomp](https://github.com/zeldaret/ph) (CC0)
 
 ## License
 
-The code and configs in this repository are released into the public domain under [CC0 1.0](LICENSE). This covers only what's in the repo; the game itself is not included and remains Nintendo's.
+The code and configs written for this project are released into the public domain under [CC0 1.0](LICENSE). That grant does not cover `libs/msl`, which is Metrowerks Standard Library code (Metrowerks / NXP) taken from the Spirit Tracks decomp and used under whatever terms apply to it, nor the original instructions kept in `asm`/`dcd` functions, which are Nintendo's. The game itself is not included and remains Nintendo's.
 
 Fan project, not affiliated with or endorsed by Nintendo, Red Entertainment or Spike. Fossil Fighters is a trademark of Nintendo.
