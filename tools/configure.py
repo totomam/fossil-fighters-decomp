@@ -109,7 +109,7 @@ w(f"rule ld\n  command = {wine} {LD} {LD_FLAGS} @$objects $lcf -o $out\n  descri
 w(f"rule check\n  command = {DSD} check modules --config-path {arm9_config} --fail && touch $out")
 w(f"rule rom_config\n  command = {DSD} rom config --elf $in --config {arm9_config}")
 w(f"rule rom_build\n  command = {DSD} rom build --config $in --rom $out && {PY} tools/fix_rom.py {base_rom} $out")
-w(f"rule sha1\n  command = shasum -c config/{args.version}/ff_{args.version}.sha1 && touch $out")
+w(f"rule sha1\n  command = {PY} tools/sha1check.py config/{args.version}/ff_{args.version}.sha1 && touch $out")
 w(f"rule objdiff_config\n  command = {DSD} objdiff --config-path {arm9_config} --output-path . --scratch "
   f"--compiler {DECOMP_ME_COMPILER} --c-flags \"{CC_FLAGS} -lang c\" --custom-make ninja")
 w("")
