@@ -126,7 +126,7 @@ extern "C" struct {
     u8 unk10[0x8];
     void (DinoBackup::*Save_18)();
     void (DinoUiATMMenu::*OnTeamMenuDecided_20)();
-    void (DinoUiATMMenu::*Unk02173d08_28)();
+    void (DinoUiATMMenu::*func_02173d08_28)();
 } data_ov007_0218cc38;
 extern const u32 data_0208ab54;
 
@@ -481,7 +481,7 @@ void DinoUiATMMenu::OnTeamMenuDecided() {
         dialog->SetLabels2(std::string(gDinoResource->GetText(data_0208aa6c)), std::string(gDinoResource->GetText(data_0208aa68)));
         mFocusCursor->Hide();
         GetSerial()->AddTail(dialog, mFocusCursor->CreateShowTransfer(),
-                             MCreateCallTask(this, data_ov007_0218cc38.Unk02173d08_28));
+                             MCreateCallTask(this, data_ov007_0218cc38.func_02173d08_28));
     }
 }
 
@@ -566,7 +566,7 @@ void DinoUiATMMenu::OnBackDecided() {
 }
 
 #pragma dont_inline on
-void DinoUiATMMenu::Unk02173d08() {
+void DinoUiATMMenu::func_02173d08() {
     if (mUnk114 == 1) {
         mCursor->Hide();
         MTask *clear = MCreateCallTask(this, data_ov007_0218cb60.ClearTeam_38);

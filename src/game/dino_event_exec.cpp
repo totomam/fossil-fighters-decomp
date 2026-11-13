@@ -2323,7 +2323,7 @@ extern "C" struct {
     u8 unk10[0x28 - 0x10];
     void (DinoEventExecCleaning::*StateCloseField_28)(); // 0x28
     u8 unk30[0x40 - 0x30];
-    void (DinoEventExecCleaning::*Unk02159b38_40)(); // 0x40
+    void (DinoEventExecCleaning::*func_02159b38_40)(); // 0x40
     void (DinoEventExecCleaning::*StateOpenField_48)(); // 0x48
     u8 unk50[0x58 - 0x50];
     void (DinoEventExecBattle::*Battle020401b0_58)(); // 0x58
@@ -2395,7 +2395,7 @@ void DinoEventExecCleaning::StateResult() {
         gDinoBackup->SetKasekiRock(mUnk84, (u32 *)&rock);
         gDinoBackup->FillTeam();
     }
-    mState = data_020be1c4.Unk02159b38_40;
+    mState = data_020be1c4.func_02159b38_40;
 }
 
 void DinoEventExecCleaning::StateOpenField() {

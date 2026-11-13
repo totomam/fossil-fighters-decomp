@@ -47,9 +47,9 @@ public:
     MTask *CreateWaitModelTask();   // waits until the 3D model's tasks finish
     // Shows the page's second picture (the last three pictures, hidden at first).
     void CreateSubPicture();
-    void Unk02156800();
-    void Unk021571bc();
-    void Unk02156ee8(DinoCreatureInfo info);
+    void func_02156800();
+    void func_021571bc();
+    void func_02156ee8(DinoCreatureInfo info);
     // (Page 0) The support effects' texts: for the creature's own side and the other side, each of the four
     // values signed with a fixed-width sign.
     void ShowSupportEffects();

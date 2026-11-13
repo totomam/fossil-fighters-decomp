@@ -147,7 +147,7 @@ void DinoUiRvStatusMenu::OnStart() {
     mInfo = new DinoUiRvInformation(mUnk10A);
     mParallel.AddTail(mInfo);
     gDinoBackup->GetCreature(mCreatures[mPage], &creature);
-    mInfo->Unk02156ee8(*(DinoCreatureInfo *)&creature);
+    mInfo->func_02156ee8(*(DinoCreatureInfo *)&creature);
     FocusItem(mTabItems[0]);
     mTabItems[1]->SetKeys(0x400);
     mTabItems[3]->SetKeys(0x800);
@@ -316,7 +316,7 @@ void DinoUiRvStatusMenu::ShowPage() {
     mFraction->SetNumerator(mPage + 1);
     DinoCreatureState creature;
     gDinoBackup->GetCreature(mCreatures[mPage], &creature);
-    mInfo->Unk02156ee8(*(DinoCreatureInfo *)&creature);
+    mInfo->func_02156ee8(*(DinoCreatureInfo *)&creature);
     GetSerial()->AddTail(MTaskSetWaitEmptyTask::Create(&mInfo->mSerial),
                          MCreateCallTask(this, data_ov006_02193a10.Enable_00));
     Disable();

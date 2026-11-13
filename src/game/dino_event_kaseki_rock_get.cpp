@@ -38,12 +38,12 @@ extern "C" struct {
     void (DinoEventKasekiRockGet::*StateSwap_0C)();
     u8 unk14[0x1C - 0x14];
     void (DinoEventKasekiRockGet::*StateReplace_1C)();
-    void (DinoEventKasekiRockGet::*Unk02034ed8_24)();
-    void (DinoEventKasekiRockGet::*Unk02034ed8_2C)();
+    void (DinoEventKasekiRockGet::*func_02034ed8_24)();
+    void (DinoEventKasekiRockGet::*func_02034ed8_2C)();
     u8 unk34[0x3C - 0x34];
     void (DinoEventKasekiRockGet::*StateEnd_3C)();
     u8 unk44[0x4C - 0x44];
-    void (DinoEventKasekiRockGet::*Unk02034ed8_4C)();
+    void (DinoEventKasekiRockGet::*func_02034ed8_4C)();
     void (DinoEventKasekiRockGet::*StateEnd_54)();
     void (DinoEventKasekiRockGet::*StateStart_5C)();
     void (DinoEventKasekiRockGet::*StateStore_64)();
@@ -124,12 +124,12 @@ void DinoEventKasekiRockGet::StateAskSwap() {
         mSerial.AddTail(CreateMessageBox(0));
     }
     mSerial.AddTail(CreateYesNo(1));
-    mState = data_020bd1f8.Unk02034ed8_24;
+    mState = data_020bd1f8.func_02034ed8_24;
 }
 
 void DinoEventKasekiRockGet::StateAnswered() {
     if (mAnswer != 0) {
-        mState = data_020bd1f8.Unk02034ed8_4C;
+        mState = data_020bd1f8.func_02034ed8_4C;
     } else {
         mState = data_020bd1f8.StateEnd_54;
     }
@@ -147,7 +147,7 @@ void DinoEventKasekiRockGet::StateConfirmed() {
     if (mAnswer != 0) {
         mState = data_020bd1f8.StateEnd_04;
     } else {
-        mState = data_020bd1f8.Unk02034ed8_2C;
+        mState = data_020bd1f8.func_02034ed8_2C;
     }
 }
 

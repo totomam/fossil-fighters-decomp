@@ -31,7 +31,7 @@ static inline u32 GetCreatureLevel(const DinoCreatureState &creature) {
 }
 
 // By unk0D, in the order 1, 3, 2, 4, 5, then the rest.
-struct DinoCreatureByUnk0D {
+struct DinoCreatureByFunc_0D {
     bool operator()(const u32 &a, const u32 &b) const {
         const DinoCreatureDef *defs[2];
         u32 ranks[2];
@@ -64,7 +64,7 @@ struct DinoCreatureByUnk0D {
 };
 
 // By func_02031104, highest first (creatures not revived yet last).
-struct DinoCreatureByUnk02031104 {
+struct DinoCreatureByFunc_02031104 {
     bool operator()(const u32 &a, const u32 &b) const {
         u32 ids[2];
         u32 values[2];

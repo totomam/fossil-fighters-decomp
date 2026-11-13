@@ -741,7 +741,7 @@ void DinoUiOrderSelectMenu::OnFocus(MMenuItem *item) {
                 DinoCreatureState creature;
                 gDinoBackup->GetCreature(mTeam.slots[i], &creature);
                 mInfo->SetUnk1B1(0);
-                mInfo->Unk02156ee8(*(DinoCreatureInfo *)&creature);
+                mInfo->func_02156ee8(*(DinoCreatureInfo *)&creature);
                 MTask *enable = MCreateCallTask(this, data_ov006_021970f8.Enable);
                 mSerial.AddTail(MTaskSetWaitEmptyTask::Create(&mInfo->mSerial), enable);
                 Disable();
@@ -752,7 +752,7 @@ void DinoUiOrderSelectMenu::OnFocus(MMenuItem *item) {
                 mName->SetCreature(mTeam.slots[i]);
                 mName->SetPosition(data_ov006_02197340[i] + data_ov006_021970cc.nameOffset);
             } else {
-                mInfo->Unk021571bc();
+                mInfo->func_021571bc();
                 ShowPage(1);
                 mName->Hide();
             }
@@ -775,7 +775,7 @@ void DinoUiOrderSelectMenu::OnFocus(MMenuItem *item) {
                     mInfo->SetUnk1B1(1);
                     func_ov003_02156eac(mInfo, mOpponent.unk84[i]);
                 }
-                mInfo->Unk02156ee8(*(DinoCreatureInfo *)&mOpponent.creatures[i]);
+                mInfo->func_02156ee8(*(DinoCreatureInfo *)&mOpponent.creatures[i]);
                 MTask *enable = MCreateCallTask(this, data_ov006_02197148.Enable);
                 mSerial.AddTail(MTaskSetWaitEmptyTask::Create(&mInfo->mSerial), enable);
                 Disable();
@@ -787,7 +787,7 @@ void DinoUiOrderSelectMenu::OnFocus(MMenuItem *item) {
                     mName->SetPosition(data_ov006_021972f0[i] + data_ov006_021970cc.nameOffset);
                 }
             } else {
-                mInfo->Unk021571bc();
+                mInfo->func_021571bc();
                 ShowPage(1);
                 mName->Hide();
             }

@@ -135,7 +135,7 @@ extern "C" struct {
     void (DinoCleaningSleep::*Start_48)();
     void (DinoCleaningSleep::*StateClose_50)();
     u8 unk58[0x60 - 0x58];
-    void (DinoCleaningStopConfirm::*Unk02156a9c_60)();
+    void (DinoCleaningStopConfirm::*func_02156a9c_60)();
 } data_ov002_02163f40;
 
 DinoCleaningStopConfirm::DinoCleaningStopConfirm(DinoCleaning *cleaning, u8 *result)
@@ -149,7 +149,7 @@ void DinoCleaningStopConfirm::StateDecided() {
         Exit();
         return;
     }
-    mState = data_ov002_02163f40.Unk02156a9c_60;
+    mState = data_ov002_02163f40.func_02156a9c_60;
 }
 
 // The questions' text ids.

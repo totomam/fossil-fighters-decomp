@@ -136,8 +136,8 @@ public:
     std::vector<u32> mByVoice;          // 0x1B8
     std::vector<u32> mByUnk88;          // 0x1C4
     std::vector<u32> mByLevel;          // 0x1D0
-    std::vector<u32> mByUnk02031104;    // 0x1DC
-    std::vector<u32> mByUnk0D;          // 0x1E8
+    std::vector<u32> mByFunc_02031104;    // 0x1DC
+    std::vector<u32> mByFunc_0D;          // 0x1E8
     int mPage;                          // 0x1F4
     int mLastPage;                      // 0x1F8
     u8 mTab;                            // 0x1FC

@@ -151,13 +151,13 @@ extern "C" struct {
     u8 unk28[0x2C - 0x28];
     void (DinoUiTitle::*StateMenu_2C)(); // 0x2c
     u8 unk34[0x3C - 0x34];
-    void (DinoUiTitle::*Unk0215ee60_3C)(); // 0x3c
-    void (DinoUiTitle::*Unk0215f4ec_44)(); // 0x44
+    void (DinoUiTitle::*func_0215ee60_3C)(); // 0x3c
+    void (DinoUiTitle::*func_0215f4ec_44)(); // 0x44
     u8 unk4C[0x54 - 0x4C];
     void (DinoUiTitle::*StateToSaveSlot_54)(); // 0x54
     void (DinoUiTitle::*LoadBackup_5C)(); // 0x5c
     u8 unk64[0x6C - 0x64];
-    void (DinoUiTitle::*Unk0215d818_6C)(); // 0x6c
+    void (DinoUiTitle::*func_0215d818_6C)(); // 0x6c
     void (DinoUiTitle::*StateOpening_74)(); // 0x74
     void (DinoUiTitle::*StateSaveSlot_7C)(); // 0x7c
     void (DinoUiTitle::*StateTopMenuEnd_84)(); // 0x84
@@ -165,21 +165,21 @@ extern "C" struct {
     void (DinoUiTitle::*LoadLogo_94)(); // 0x94
     void (DinoUiTitle::*StatePrepareBackup_9C)(); // 0x9c
     void (DinoUiTitle::*StateWarning_A4)(); // 0xa4
-    void (DinoUiTitle::*Unk0215e03c_AC)(); // 0xac
+    void (DinoUiTitle::*func_0215e03c_AC)(); // 0xac
     void (DinoUiTitle::*Start_B4)(); // 0xb4
     u8 unkBC[0xC4 - 0xBC];
-    void (DinoUiTitle::*Unk0215d818_C4)(); // 0xc4
+    void (DinoUiTitle::*func_0215d818_C4)(); // 0xc4
     u8 unkCC[0xE4 - 0xCC];
     void (DinoUiTitle::*StateAdvice2_E4)(); // 0xe4
-    void (DinoUiTitle::*Unk0215e03c_EC)(); // 0xec
-    void (DinoUiTitle::*Unk0215f5ac_F4)(); // 0xf4
+    void (DinoUiTitle::*func_0215e03c_EC)(); // 0xec
+    void (DinoUiTitle::*func_0215f5ac_F4)(); // 0xf4
     u8 unkFC[0x114 - 0xFC];
     void (DinoUiOpening::*OpeningStart_114)(); // 0x114
     u8 unk11C[0x124 - 0x11C];
-    void (DinoUiTitle::*Unk0215e03c_124)(); // 0x124
-    void (DinoUiTitle::*Unk0215f420_12C)(); // 0x12c
+    void (DinoUiTitle::*func_0215e03c_124)(); // 0x124
+    void (DinoUiTitle::*func_0215f420_12C)(); // 0x12c
     void (DinoUiTitle::*StateInit_134)(); // 0x134
-    void (DinoUiTitle::*Unk0215d818_13C)(); // 0x13c
+    void (DinoUiTitle::*func_0215d818_13C)(); // 0x13c
     void (DinoUiTitle::*StateMenuChosen_144)(); // 0x144
     void (DinoUiTitle::*StateWarning_14C)(); // 0x14c
     void (MBg::*SetMode_154)(bg_mode); // 0x154
@@ -353,7 +353,7 @@ void DinoUiTitle::LoadLogo() {
 
 void DinoUiTitle::StateOpening() {
     mSerial.AddTail(new DinoUiOpening(mInput));
-    mState = data_ov004_02172f78.Unk0215e03c_AC;
+    mState = data_ov004_02172f78.func_0215e03c_AC;
 }
 
 void DinoUiTitle::StateMenu() {
@@ -372,7 +372,7 @@ void DinoUiTitle::StateSaveSlot() {
 void DinoUiTitle::StateSaveSlotEnd() {
     switch (mSlotChoice) {
     case 1:
-        mState = data_ov004_02172f78.Unk0215ee60_3C;
+        mState = data_ov004_02172f78.func_0215ee60_3C;
         break;
     case 0:
         mState = data_ov004_02172f78.StatePrepareBackup_9C;
@@ -388,16 +388,16 @@ void DinoUiTitle::StateTopMenu() {
 void DinoUiTitle::StateTopMenuEnd() {
     switch (mTopResult) {
     case 1:
-        mState = data_ov004_02172f78.Unk0215f420_12C;
+        mState = data_ov004_02172f78.func_0215f420_12C;
         break;
     case 0:
         mState = data_ov004_02172f78.StateSaveSlot_7C;
         break;
     case 2:
-        mState = data_ov004_02172f78.Unk0215f4ec_44;
+        mState = data_ov004_02172f78.func_0215f4ec_44;
         break;
     case 3:
-        mState = data_ov004_02172f78.Unk0215f5ac_F4;
+        mState = data_ov004_02172f78.func_0215f5ac_F4;
         break;
     }
 }
@@ -416,18 +416,18 @@ void DinoUiTitle::StateStart() {
         break;
     case 4:
         mTopResult = 1;
-        mState = data_ov004_02172f78.Unk0215d818_13C;
+        mState = data_ov004_02172f78.func_0215d818_13C;
         break;
     case 7:
         mSerial.AddTail(new DinoBackupReadValidater(NULL, NULL));
     case 5:
         mTopResult = 2;
-        mState = data_ov004_02172f78.Unk0215d818_C4;
+        mState = data_ov004_02172f78.func_0215d818_C4;
         break;
     case 6:
         DinoSoundPlayBgm(0x77, 0);
         mTopResult = 3;
-        mState = data_ov004_02172f78.Unk0215d818_6C;
+        mState = data_ov004_02172f78.func_0215d818_6C;
         break;
     }
 }
@@ -471,7 +471,7 @@ void DinoUiTitle::StateWarning() {
 
 void DinoUiTitle::StateAdvice() {
     if (mSkipped) {
-        mState = data_ov004_02172f78.Unk0215e03c_EC;
+        mState = data_ov004_02172f78.func_0215e03c_EC;
         return;
     }
     MTextPicture *screen = new MTextPicture(data_ov004_02172f78.mScreenPaths[2], TRUE, false);
@@ -489,7 +489,7 @@ void DinoUiTitle::StateAdvice() {
 
 void DinoUiTitle::StateAdvice2() {
     if (mSkipped) {
-        mState = data_ov004_02172f78.Unk0215e03c_124;
+        mState = data_ov004_02172f78.func_0215e03c_124;
         return;
     }
     MTextPicture *screen = new MTextPicture(data_ov004_02172f78.mScreenPaths[0], TRUE, false);

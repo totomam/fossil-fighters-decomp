@@ -587,7 +587,7 @@ void DinoFieldChara::FinishBehold() {
 // Watching (mTask.unk28): turns to the camera's focus when it comes within range (w[0] around its height),
 // follows it at w[2] per second until it strays w[1] from home, waits w[4] frames, then walks home at w[3].
 // NONMATCHING: the frame is 8 bytes smaller (the game doesn't keep the factors of (height + range)^2 on the stack).
-BOOL DinoFieldChara::Unk02162154() {
+BOOL DinoFieldChara::func_02162154() {
     if (!mTask.unk28.active) {
         return FALSE;
     }
@@ -652,7 +652,7 @@ BOOL DinoFieldChara::Unk02162154() {
 
 void DinoFieldChara::IdleNoTask() {
     if (!mField->IsUnk258()) {
-        Unk02162154();
+        func_02162154();
     }
 }
 

@@ -72,12 +72,12 @@ DinoUiRvStatusMenu::DinoUiRvStatusMenu(int *page, u8 sort)
         break;
     }
     case 3: {
-        DinoCreatureByUnk02031104 byUnk02031104;
-        std::stable_sort(mCreatures.begin(), mCreatures.end(), byUnk02031104);
+        DinoCreatureByFunc_02031104 byfunc_02031104;
+        std::stable_sort(mCreatures.begin(), mCreatures.end(), byfunc_02031104);
         break;
     }
     case 4: {
-        DinoCreatureByUnk0D byUnk0D;
+        DinoCreatureByFunc_0D byUnk0D;
         std::stable_sort(mCreatures.begin(), mCreatures.end(), byUnk0D);
         break;
     }
@@ -88,8 +88,8 @@ DinoUiRvStatusMenu::DinoUiRvStatusMenu(int *page, u8 sort)
 // NONMATCHING: std::__inplace_merge (stack layout, and the game elides one argument copy), std::__stable_sort_move
 // and std::__insertion_sort_move (register allocation), as in the museum; std::get_temporary_buffer (the game loads
 // the pair's zero from the TU's pooled .data object at data_ov006_021939d4, which isn't decompiled).
-template void std::stable_sort(std::vector<u32>::iterator, std::vector<u32>::iterator, DinoCreatureByUnk0D);
-template void std::stable_sort(std::vector<u32>::iterator, std::vector<u32>::iterator, DinoCreatureByUnk02031104);
+template void std::stable_sort(std::vector<u32>::iterator, std::vector<u32>::iterator, DinoCreatureByFunc_0D);
+template void std::stable_sort(std::vector<u32>::iterator, std::vector<u32>::iterator, DinoCreatureByFunc_02031104);
 template void std::stable_sort(std::vector<u32>::iterator, std::vector<u32>::iterator, DinoCreatureByLevel);
 template void std::stable_sort(std::vector<u32>::iterator, std::vector<u32>::iterator, DinoCreatureByUnk88);
 template void std::stable_sort(std::vector<u32>::iterator, std::vector<u32>::iterator, DinoCreatureByVoice);

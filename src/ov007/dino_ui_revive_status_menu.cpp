@@ -248,9 +248,9 @@ void DinoUiReviveStatusMenu::OnStart() {
     mInfo = new DinoUiRvInformation(0);
     mParallel.AddTail(mInfo);
     if (mUnk118) {
-        mInfo->Unk02156ee8(*(DinoCreatureInfo *)&mCreature2);
+        mInfo->func_02156ee8(*(DinoCreatureInfo *)&mCreature2);
     } else {
-        mInfo->Unk02156ee8(*(DinoCreatureInfo *)&mCreature);
+        mInfo->func_02156ee8(*(DinoCreatureInfo *)&mCreature);
     }
     gCurrentDisplay = gLcd->GetTopDisplay();
     sprintf(number, data_ov007_021922d4, mCreature.index);

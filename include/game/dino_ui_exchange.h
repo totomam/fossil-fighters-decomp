@@ -69,7 +69,7 @@ public:
     void StateSave();
     // Whether this partner was exchanged with already.
     BOOL HasExchangedWith() { return mPartners.find(*(DinoMacAddress *)mPartnerMac) != mPartners.end() ? TRUE : FALSE; }
-    void Unk02155f24();
+    void func_02155f24();
     // A random fossil an exchange can give.
     void MakeExchangeEntry(DinoBackupEntry *entry);
     // Sets when the next exchange may happen.

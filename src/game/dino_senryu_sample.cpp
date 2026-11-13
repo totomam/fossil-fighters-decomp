@@ -28,9 +28,9 @@ extern "C" struct {
     u8 unk00[0x18];
     void (DinoSenryuSample::*StatePages_18)();
     void (DinoSenryuSample::*StateEnd_20)();
-    void (DinoSenryuSample::*Unk0203467c_28)();
+    void (DinoSenryuSample::*func_0203467c_28)();
     void (DinoSenryuSample::*Start_30)();
-    void (DinoSenryuSample::*Unk02034564_38)();
+    void (DinoSenryuSample::*func_02034564_38)();
 } data_020bd15c;
 // "PAGE%d", "CANCEL" (the TU's string literals are pooled data too), the title's text id.
 extern "C" const char data_020bd1e8[];
@@ -48,12 +48,12 @@ void DinoSenryuSample::StateEnd() {
         Exit();
         return;
     }
-    mState = data_020bd15c.Unk0203467c_28;
+    mState = data_020bd15c.func_0203467c_28;
 }
 
 void DinoSenryuSample::StateMenu() {
     mSerial.AddTail(new DinoUiSenryuMenu);
-    mState = data_020bd15c.Unk02034564_38;
+    mState = data_020bd15c.func_02034564_38;
 }
 
 void DinoSenryuSample::StateStart() {

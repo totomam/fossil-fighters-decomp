@@ -378,7 +378,7 @@ void DinoUiOrganizationMenu::OnFocus(MMenuItem *item) {
                 mName->SetPosition(data_ov007_0218ef0c[i] + data_ov007_0218ec6c.nameOffset);
                 DinoCreatureState creature;
                 gDinoBackup->GetCreature(mTeam.slots[i], &creature);
-                mInfo->Unk02156ee8(*(DinoCreatureInfo *)&creature);
+                mInfo->func_02156ee8(*(DinoCreatureInfo *)&creature);
                 MTask *enable = MCreateCallTask(this, data_ov007_0218ecd4.Enable);
                 mSerial.AddTail(MTaskSetWaitEmptyTask::Create(&mInfo->mSerial), enable);
                 Disable();
@@ -388,7 +388,7 @@ void DinoUiOrganizationMenu::OnFocus(MMenuItem *item) {
                 }
             } else {
                 mName->Hide();
-                mInfo->Unk021571bc();
+                mInfo->func_021571bc();
                 UpdateDetails(1);
             }
             return;
@@ -405,14 +405,14 @@ void DinoUiOrganizationMenu::OnFocus(MMenuItem *item) {
                                    data_ov007_0218ec6c.nameOffset);
                 DinoCreatureState creature;
                 gDinoBackup->GetCreature(mCreatures[mPage * 15 + i], &creature);
-                mInfo->Unk02156ee8(*(DinoCreatureInfo *)&creature);
+                mInfo->func_02156ee8(*(DinoCreatureInfo *)&creature);
                 MTask *enable = MCreateCallTask(this, data_ov007_0218ed4c.Enable);
                 mSerial.AddTail(MTaskSetWaitEmptyTask::Create(&mInfo->mSerial), enable);
                 Disable();
                 UpdateDetails(mCreatures[mPage * 15 + i]);
             } else {
                 mName->Hide();
-                mInfo->Unk021571bc();
+                mInfo->func_021571bc();
                 UpdateDetails(1);
             }
             return;
@@ -563,12 +563,12 @@ void DinoUiOrganizationMenu::LoadCreatures() {
     mByLevel = mCreatures;
     DinoCreatureByLevel byLevel;
     std::stable_sort(mByLevel.begin(), mByLevel.end(), byLevel);
-    mByUnk02031104 = mCreatures;
-    DinoCreatureByUnk02031104 byUnk02031104;
-    std::stable_sort(mByUnk02031104.begin(), mByUnk02031104.end(), byUnk02031104);
-    mByUnk0D = mCreatures;
-    DinoCreatureByUnk0D byUnk0D;
-    std::stable_sort(mByUnk0D.begin(), mByUnk0D.end(), byUnk0D);
+    mByFunc_02031104 = mCreatures;
+    DinoCreatureByFunc_02031104 byfunc_02031104;
+    std::stable_sort(mByFunc_02031104.begin(), mByFunc_02031104.end(), byfunc_02031104);
+    mByFunc_0D = mCreatures;
+    DinoCreatureByFunc_0D byUnk0D;
+    std::stable_sort(mByFunc_0D.begin(), mByFunc_0D.end(), byUnk0D);
     if (mCreatures.size() == 0) {
         mLastPage = 0;
     } else {
@@ -600,10 +600,10 @@ void DinoUiOrganizationMenu::Sort(u8 sort) {
         mCreatures = mByLevel;
         break;
     case 3:
-        mCreatures = mByUnk02031104;
+        mCreatures = mByFunc_02031104;
         break;
     case 4:
-        mCreatures = mByUnk0D;
+        mCreatures = mByFunc_0D;
         break;
     }
 }
@@ -1245,8 +1245,8 @@ template void std::__vec_deleter<u32, std::allocator<u32> >::assign<u32 *>(u32 *
 // The list's sorts (the game emits the whole stable_sort machinery here, after SetSort's caller).
 // NONMATCHING: std::__inplace_merge, std::__stable_sort_move, std::__insertion_sort_move and std::get_temporary_buffer,
 // as in ov006_02178b80.cpp.
-template void std::stable_sort(std::vector<u32>::iterator, std::vector<u32>::iterator, DinoCreatureByUnk0D);
-template void std::stable_sort(std::vector<u32>::iterator, std::vector<u32>::iterator, DinoCreatureByUnk02031104);
+template void std::stable_sort(std::vector<u32>::iterator, std::vector<u32>::iterator, DinoCreatureByFunc_0D);
+template void std::stable_sort(std::vector<u32>::iterator, std::vector<u32>::iterator, DinoCreatureByFunc_02031104);
 template void std::stable_sort(std::vector<u32>::iterator, std::vector<u32>::iterator, DinoCreatureByLevel);
 template void std::stable_sort(std::vector<u32>::iterator, std::vector<u32>::iterator, DinoCreatureByUnk88);
 template void std::stable_sort(std::vector<u32>::iterator, std::vector<u32>::iterator, DinoCreatureByVoice);

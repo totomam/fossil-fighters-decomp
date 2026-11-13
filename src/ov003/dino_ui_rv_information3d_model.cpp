@@ -186,7 +186,7 @@ extern "C" u32 data_ov003_02160760[];
 
 // Makes the page's parts, hidden.
 #pragma opt_common_subs off
-void DinoUiRvInformation::Unk02156800() {
+void DinoUiRvInformation::func_02156800() {
     gCurrentDisplay = gLcd->mMain;
     switch (mPage) {
     case 0: {
@@ -292,13 +292,13 @@ extern "C" struct {
     void (DinoUiRvInformation::*CreateSubPicture_00)();
 } data_ov003_021606d4;
 extern "C" struct {
-    void (DinoUiRvInformation::*Unk02156800_00)();
+    void (DinoUiRvInformation::*func_02156800_00)();
 } data_ov003_02160784;
 extern "C" struct {
-    void (DinoUiRvInformation::*Unk021571bc_00)();
+    void (DinoUiRvInformation::*func_021571bc_00)();
 } data_ov003_0216069c;
 extern "C" struct {
-    void (DinoUiRvInformation::*Unk02156ee8_00)(DinoCreatureInfo info);
+    void (DinoUiRvInformation::*func_02156ee8_00)(DinoCreatureInfo info);
 } data_ov003_02160774;
 
 extern "C" const char data_ov003_02160c2c[];
@@ -565,11 +565,11 @@ void DinoUiRvInformation::SetPage(u8 page) {
     if (mPage) {
         mModel->SetUnk84(0);
     }
-    GetSerial()->AddTail(new MTimer(1), MCreateCallTask(this, data_ov003_02160784.Unk02156800_00));
+    GetSerial()->AddTail(new MTimer(1), MCreateCallTask(this, data_ov003_02160784.func_02156800_00));
     if (mUnk1B0) {
-        GetSerial()->AddTail(new MTimer(1), MCreateCallTask(this, data_ov003_0216069c.Unk021571bc_00));
+        GetSerial()->AddTail(new MTimer(1), MCreateCallTask(this, data_ov003_0216069c.func_021571bc_00));
     } else {
-        GetSerial()->AddTail(new MTimer(1), MCreateCallTask(this, data_ov003_02160774.Unk02156ee8_00, mInfo));
+        GetSerial()->AddTail(new MTimer(1), MCreateCallTask(this, data_ov003_02160774.func_02156ee8_00, mInfo));
     }
 }
 
@@ -585,7 +585,7 @@ extern "C" const char data_ov003_02160c24[];   // the number's format
 
 // Shows a creature: its number, type and name, and the page's details (reloading the page when the picture
 // changes).
-void DinoUiRvInformation::Unk02156ee8(DinoCreatureInfo info) {
+void DinoUiRvInformation::func_02156ee8(DinoCreatureInfo info) {
     u32 index = info.state.index;
     if (index == 0 || index > gDinoResource->GetCreatureCount()) {
         return;
@@ -651,7 +651,7 @@ void DinoUiRvInformation::Unk02156ee8(DinoCreatureInfo info) {
 }
 
 // Hides the page's parts (on the last page, puts its picture back up).
-void DinoUiRvInformation::Unk021571bc() {
+void DinoUiRvInformation::func_021571bc() {
     mUnk1B0 = 1;
     mViewsAC[0]->Hide();
     mViewsAC[1]->Hide();
@@ -800,7 +800,7 @@ DinoUiRvInformation::DinoUiRvInformation(u8 hasTenPictures)
         mSubPicture->Hide();
         mSubPicture->SetPriority(2);
     }
-    Unk02156800();
+    func_02156800();
     gCurrentDisplay = gLcd->mSub;
 }
 

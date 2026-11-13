@@ -140,7 +140,7 @@ void DinoCommonWindowMenu::OnFocus(MMenuItem *item) {
     }
     for (int i = 0; i < mChoices.size(); i++) {
         if (item == mUnkC0[i]) {
-            mWindow->Unk0201bb5c();
+            mWindow->func_0201bb5c();
             mWindow->Flush(MRect(3, i / 4 + (i * 2 + 1), mWidth - 1, i / 4 + (i * 2 + 1) + (i % 4 < 2 ? 2 : 3)),
                            i % 4);
         }
@@ -177,7 +177,7 @@ void DinoCommonWindowMenuItemFlushTask::Execute() {
     }
     int phase = mFrame % 6;
     if (phase == 1) {
-        mMenu->mWindow->Unk0201bb5c();
+        mMenu->mWindow->func_0201bb5c();
     } else if (phase == 4) {
         int row = mIndex % 4;
         int height = row < 2 ? 2 : 3;

@@ -140,7 +140,7 @@ extern "C" struct {
     void (DinoUiExchange::*State02156718_1C)(); // 0x1c
     void (DinoUiExchange::*StateSave_24)(); // 0x24
     void (DinoUiExchange::*StateEnd_2C)(); // 0x2c
-    void (DinoUiExchange::*Unk02155f24_34)();
+    void (DinoUiExchange::*func_02155f24_34)();
     MPoint mMessagePos;  // 0x3c
     void (DinoUiExchange::*StateRestart_44)(); // 0x44
     void (DinoUiExchange::*OnNoMessage_4C)(MMessage *msg); // 0x4c
@@ -463,7 +463,7 @@ static inline void DinoUiExchangeAddTail(MTaskSet *set, MTask *a, MTask *b, MTas
 }
 
 // The waiting screen (a background and two points), the player's name in the beacon, and the wireless start.
-void DinoUiExchange::Unk02155f24() {
+void DinoUiExchange::func_02155f24() {
     DinoSoundPlayBgm(0x79, 0);
     mCount = 0;
     mOam = new MSmartOam(10, 0, TRUE);
@@ -516,7 +516,7 @@ void DinoUiExchange::StateEnd() {
         serial.AddTail(fade);
         serial.AddTail(exit);
     } else {
-        mState = data_ov004_02171e60.Unk02155f24_34;
+        mState = data_ov004_02171e60.func_02155f24_34;
     }
 }
 

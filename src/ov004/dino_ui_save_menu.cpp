@@ -127,7 +127,7 @@ void DinoUiSaveMenu::StateAskSave() {
 
 // Saves (with a window up meanwhile), then fades out and leaves, or asks whether to overwrite.
 void DinoUiSaveMenu::StateSave() {
-    mUnk94->Unk02159590();
+    mUnk94->func_02159590();
     DinoCommonWindowMessageWait1 *wait =
         new DinoCommonWindowMessageWait1(std::string(gDinoResource->GetText(data_0208ab54)), MPoint(0x80, 0x8C), 4, 0);
     mParallel.AddTail(wait);

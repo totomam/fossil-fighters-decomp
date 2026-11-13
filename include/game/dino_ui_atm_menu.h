@@ -33,7 +33,7 @@ public:
     void OpenTeamMenu(int team);
     // What was chosen on a team's menu: edit or rename it (leaving the menu), make it current, move it or clear it.
     void OnTeamMenuDecided();
-    void Unk02173d08();
+    void func_02173d08();
     void ClearTeam();
     void LinkTeamButtons();
 

@@ -43,7 +43,7 @@ extern "C" struct {
 } data_020bd380;
 extern "C" struct {
     u8 unk00[0x28];
-    void (DinoEventKasekiRockFound::*Unk02036bd4_28)();
+    void (DinoEventKasekiRockFound::*func_02036bd4_28)();
     void (DinoEventParkKasekiRockFound::*StateFound_30)();
     void (DinoEventParkKasekiRockFound::*StateStart_38)();
 } data_020bd400;
@@ -59,7 +59,7 @@ void DinoEventKasekiRockFound::StateFound() {
 
 void DinoEventKasekiRockFound::StateFoundEnd() {
     if (mBattle != 0) {
-        mState = data_020bd400.Unk02036bd4_28;
+        mState = data_020bd400.func_02036bd4_28;
     } else {
         mState = data_020bd380.StateGet_40;
     }

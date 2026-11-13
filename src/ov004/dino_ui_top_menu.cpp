@@ -1022,7 +1022,7 @@ void DinoUiSaveSlotSelectMenu::DeleteSlot(u32 slot) {
 // NONMATCHING: the game puts the summary below the inlined item's locals on the stack (and swaps the item/oam
 // registers).
 #pragma inline_max_size(2000)
-void DinoUiSaveSlotConfirm::Unk02159590() {
+void DinoUiSaveSlotConfirm::func_02159590() {
     DinoUiSaveSlotConfirmMenu *menu = mMenu;
     menu->ClearItems();
     DinoSaveSummary summary;

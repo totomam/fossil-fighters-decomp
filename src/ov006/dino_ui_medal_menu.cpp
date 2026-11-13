@@ -573,9 +573,9 @@ void stable_sort(__vec_iterator<u32> first, __vec_iterator<u32> last, DinoCreatu
 template <>
 void stable_sort(__vec_iterator<u32> first, __vec_iterator<u32> last, DinoCreatureByLevel comp);
 template <>
-void stable_sort(__vec_iterator<u32> first, __vec_iterator<u32> last, DinoCreatureByUnk0D comp);
+void stable_sort(__vec_iterator<u32> first, __vec_iterator<u32> last, DinoCreatureByFunc_0D comp);
 template <>
-void stable_sort(__vec_iterator<u32> first, __vec_iterator<u32> last, DinoCreatureByUnk02031104 comp);
+void stable_sort(__vec_iterator<u32> first, __vec_iterator<u32> last, DinoCreatureByFunc_02031104 comp);
 template <>
 void __vec_deleter<u32, allocator<u32> >::sub_push_back(const u32 &x, Metrowerks::int2type<true>);
 }  // namespace std
@@ -627,14 +627,14 @@ void DinoUiMedalMenu::Sort(u8 sort) {
     case 3:
         mCreatures = mByVoice;
         {
-            DinoCreatureByUnk02031104 order;
+            DinoCreatureByFunc_02031104 order;
             std::stable_sort(mCreatures.begin(), mCreatures.end(), order);
         }
         break;
     case 4:
         mCreatures = mByVoice;
         {
-            DinoCreatureByUnk0D order;
+            DinoCreatureByFunc_0D order;
             std::stable_sort(mCreatures.begin(), mCreatures.end(), order);
         }
         break;

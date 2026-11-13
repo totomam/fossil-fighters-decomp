@@ -24,13 +24,13 @@ public:
 
     void Draw(MPoint pos, MRect rect);
     // Tiles b with the a rect of the window graphics.
-    void Unk0201c098(MRect a, MRect b);
+    void func_0201c098(MRect a, MRect b);
     // Draws rect's border with the frame tiles at pos.
-    void Unk0201be50(MPoint pos, MRect rect);
+    void func_0201be50(MPoint pos, MRect rect);
     // Sets the window's rect and draws it.
     void SetFrame(MRect rect);
-    // Unk0201c098 with the frame inside the window's rect.
-    void Unk0201bb5c();
+    // func_0201c098 with the frame inside the window's rect.
+    void func_0201bb5c();
     // A task that opens the window out of the rect.
     MTask *CreateOpenTask(MRect from);
     // Draws the rect's rows in one of the flash phases.

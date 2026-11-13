@@ -85,12 +85,12 @@ void DinoCommonWindow::SetFrame(MRect rect) {
     mFrame.top = rect.top;
     mFrame.right = rect.right;
     mFrame.bottom = rect.bottom;
-    Unk0201be50(data_020ba57c, rect);
-    Unk0201c098(data_020ba5e8, rect.Inflate(-1));
+    func_0201be50(data_020ba57c, rect);
+    func_0201c098(data_020ba5e8, rect.Inflate(-1));
 }
 
-void DinoCommonWindow::Unk0201bb5c() {
-    Unk0201c098(data_020ba5e8, mFrame.Inflate(-1));
+void DinoCommonWindow::func_0201bb5c() {
+    func_0201c098(data_020ba5e8, mFrame.Inflate(-1));
 }
 
 DinoCommonWindow::~DinoCommonWindow() {
@@ -151,7 +151,7 @@ static inline MRect Cell(int x, int y) {
 }
 
 // Draws rect's border with the frame tiles at pos.
-void DinoCommonWindow::Unk0201be50(MPoint pos, MRect rect) {
+void DinoCommonWindow::func_0201be50(MPoint pos, MRect rect) {
     Draw(pos + data_020ba548.topLeft, Cell(rect.left, rect.top));
     Draw(pos + data_020ba548.topRight, Cell(rect.right - 1, rect.top));
     Draw(pos + data_020ba548.bottomLeft, Cell(rect.left, rect.bottom - 1));
@@ -165,7 +165,7 @@ void DinoCommonWindow::Unk0201be50(MPoint pos, MRect rect) {
 // Tiles dst with the src rect of the window graphics.
 static inline bool IsValid(const MRect &r) { return r.left <= r.right && r.top <= r.bottom; }
 
-void DinoCommonWindow::Unk0201c098(MRect src, MRect dst) {
+void DinoCommonWindow::func_0201c098(MRect src, MRect dst) {
     int x, x0, w, y0, x1, y1, h;
     if (!IsValid(dst)) {
         return;
